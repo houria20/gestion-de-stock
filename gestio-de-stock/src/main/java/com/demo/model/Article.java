@@ -17,7 +17,12 @@ import java.time.Instant;
 @Table(name = "article")
 public class Article {
     @Id
-    @GeneratedValue
+    @SequenceGenerator(
+            name = "articleSequence",
+            sequenceName = "article_seq",
+            allocationSize = 1,
+            initialValue = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "articleSequence")
     private Integer id;
     @Column(name = "creationDate", nullable = false)
     private Instant createdDate;
