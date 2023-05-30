@@ -64,14 +64,7 @@ public class ArticleServiceImpl implements ArticleService {
                 new EntityNotFoundException(
                         "Aucun article avec l'ID = " + id + " n' ete trouve dans la BDD",
                         ErrorCodes.ARTICLE_NOT_FOUND));
-        /*return articleRepository.findById(Long.valueOf(id)).map(ArticleDto::fromEntity).orElseThrow(() ->
-                new EntityNotFoundException(
-                        "Aucun article avec l'ID = " + id + " n' ete trouve dans la BDD",
-                        ErrorCodes.ARTICLE_NOT_FOUND)
-        );*/
     }
-
-
     @Override
     public ArticleDto findByCodeArticle(String codeArticle) {
         if (codeArticle == null && codeArticle.equals("")) {
@@ -92,7 +85,6 @@ public class ArticleServiceImpl implements ArticleService {
         return articleRepository.findAll().stream()
                 .map(ArticleDto::fromEntity)
                 .collect(Collectors.toList());
-        //articleRepository.listAll();
     }
 
     @Override

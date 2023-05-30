@@ -6,7 +6,10 @@ import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 
 import java.util.List;
-@Path("/articles")
+
+import static com.demo.utils.Constants.APP_ROOT;
+
+@Path(APP_ROOT+"/articles")
 public interface ArticleApi {
     @POST
     @Produces(MediaType.APPLICATION_JSON)

@@ -7,9 +7,12 @@ import io.quarkus.hibernate.orm.panache.PanacheRepository;
 import java.util.Optional;
 
 public class CategoryRepository implements PanacheRepository<Category> {
+    public void save(Category category) {
+        getEntityManager().merge(category);
+    }
 
-  public Optional<Category> findCategoryByCode(String code) {
-    return find("code", code).firstResultOptional();
-  }
+    public Optional<Category> findCategoryByCode(String code) {
+        return find("code", code).firstResultOptional();
+    }
 
 }
