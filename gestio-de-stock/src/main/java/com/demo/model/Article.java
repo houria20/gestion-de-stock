@@ -12,7 +12,7 @@ import java.time.Instant;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode
+@EqualsAndHashCode(callSuper = true)
 @Entity
 @Table(name = "article")
 public class Article extends AbstractEntity {
@@ -27,9 +27,9 @@ public class Article extends AbstractEntity {
     private BigDecimal prixUnitaireTtc;
     @Column(name = "photo")
     private String photo;
-/*  @ManyToOne
+    @ManyToOne
     @JoinColumn(name = "idcategory")
-    private Category category;*/
+    private Category category;
 
     @Column(name = "identreprise")
     private Integer idEntreprise;
