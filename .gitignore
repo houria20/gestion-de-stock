@@ -1,0 +1,31 @@
+# Quarkus
+.target/
+build/
+deployments/
+.mvn/
+.m2/
+
+# IntelliJ
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Maven
+mvnw
+mvnw.cmd
+.mvn/wrapper/maven-wrapper.jar
+.mvn/wrapper/maven-wrapper.properties
+
+# Gradle
+.gradle/
+build.gradle
+**/build/
+
+# Logs
+logs/
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
