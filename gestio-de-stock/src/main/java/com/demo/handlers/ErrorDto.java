@@ -17,12 +17,12 @@ import lombok.Setter;
 @Builder
 public class ErrorDto {
 
-  private Integer httpCode;
+    private Integer httpCode;
 
-  private ErrorCodes code;
+    private ErrorCodes code;
 
-  private String message;
+    private String message;
 
-  private List<String> errors = new ArrayList<>();
+    private List<String> errors = new ArrayList<>();
 
 }
