@@ -12,6 +12,7 @@ com\demo\controller\ArticleController.class
 com\demo\dto\ArticleDto.class
 com\demo\validator\ArticleValidator.class
 com\demo\exception\ErrorCodes.class
+com\demo\model\AbstractEntity.class
 com\demo\service\ArticleService.class
 com\demo\repository\ArticleRepository.class
 com\demo\exception\InvalidEntityException.class

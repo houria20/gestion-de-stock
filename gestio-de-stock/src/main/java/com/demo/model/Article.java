@@ -15,18 +15,7 @@ import java.time.Instant;
 @EqualsAndHashCode
 @Entity
 @Table(name = "article")
-public class Article {
-    @Id
-    @SequenceGenerator(
-            name = "articleSequence",
-            sequenceName = "article_seq",
-            allocationSize = 1,
-            initialValue = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "articleSequence")
-    private Integer id;
-    @Column(name = "creationDate", nullable = false)
-    private Instant createdDate;
-    @Column(name = "code_article")
+public class Article extends AbstractEntity {
     private String codeArticle;
     @Column(name = "designation")
     private String designation;

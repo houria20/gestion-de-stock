@@ -12,7 +12,6 @@ import java.time.Instant;
 @RegisterForReflection
 public class ArticleDto {
     private Integer id;
-    private Instant createdDate;
     private String codeArticle;
     private String designation;
     private BigDecimal prixUnitaireHt;
@@ -28,7 +27,6 @@ public class ArticleDto {
             return null;
         return ArticleDto.builder()
                 .id(article.getId())
-                .createdDate(article.getCreatedDate())
                 .codeArticle(article.getCodeArticle())
                 .designation(article.getDesignation())
                 .prixUnitaireHt(article.getPrixUnitaireHt())
@@ -44,7 +42,6 @@ public class ArticleDto {
             return null;
         Article article = new Article();
         article.setId(articleDto.getId());
-        article.setCreatedDate(articleDto.getCreatedDate());
         article.setCodeArticle(articleDto.getCodeArticle());
         article.setDesignation(articleDto.getDesignation());
         article.setPrixUnitaireHt(articleDto.getPrixUnitaireHt());
