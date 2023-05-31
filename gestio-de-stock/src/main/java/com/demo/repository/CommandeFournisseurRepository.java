@@ -4,10 +4,11 @@ import com.demo.model.Article;
 import com.demo.model.CommandeClient;
 import com.demo.model.CommandeFournisseur;
 import io.quarkus.hibernate.orm.panache.PanacheRepository;
+import jakarta.enterprise.context.ApplicationScoped;
 
 import java.util.List;
 import java.util.Optional;
-
+@ApplicationScoped
 public class CommandeFournisseurRepository implements PanacheRepository<CommandeFournisseur> {
     public CommandeFournisseur save(CommandeFournisseur commandeFournisseur) {
         return getEntityManager().merge(commandeFournisseur);

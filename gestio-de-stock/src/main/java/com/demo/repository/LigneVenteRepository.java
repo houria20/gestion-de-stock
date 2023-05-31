@@ -2,9 +2,10 @@ package com.demo.repository;
 
 import com.demo.model.LigneVente;
 import io.quarkus.hibernate.orm.panache.PanacheRepository;
+import jakarta.enterprise.context.ApplicationScoped;
 
 import java.util.List;
-
+@ApplicationScoped
 public class LigneVenteRepository implements PanacheRepository<LigneVente> {
 
     public List<LigneVente> findAllByArticleId(Integer idArticle) {

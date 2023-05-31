@@ -11,8 +11,8 @@ import jakarta.enterprise.context.ApplicationScoped;
 import java.util.List;
 @ApplicationScoped
 public interface ArticleService {
-    Article save(ArticleDto dto);
-    Article update(ArticleDto dto);
+    ArticleDto save(ArticleDto dto);
+    ArticleDto update(ArticleDto dto);
 
     ArticleDto findById(Integer id);
 

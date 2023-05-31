@@ -14,11 +14,11 @@ public interface ArticleApi {
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    void save(ArticleDto dto);
+    ArticleDto save(ArticleDto dto);
     @PUT
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    void update(ArticleDto dto);
+    ArticleDto update(ArticleDto dto);
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/{id}")

@@ -37,19 +37,19 @@ public class ArticleServiceImpl implements ArticleService {
 
     @Override
     @Transactional
-    public Article save(ArticleDto dto) {
+    public ArticleDto save(ArticleDto dto) {
         List<String> errors = ArticleValidator.validate(dto);
         if (!errors.isEmpty()) {
             log.error("Article is not valid {}", dto);
             throw new InvalidEntityException("L'article n'est pas valide", ErrorCodes.ARTICLE_NOT_VALID, errors);
         } else {
-            return articleRepository.save(ArticleDto.toEntity(dto));
+            return ArticleDto.fromEntity(articleRepository.save(ArticleDto.toEntity(dto)));
         }
     }
 
     @Override
     @Transactional
-    public Article update(ArticleDto dto) {
+    public ArticleDto update(ArticleDto dto) {
         List<String> errors = ArticleValidator.validate(dto);
         if (!errors.isEmpty()) {
             log.error("Article is not valid {}", dto);
@@ -57,7 +57,7 @@ public class ArticleServiceImpl implements ArticleService {
         } else {
             Optional<Article> article = articleRepository.findByCodeArticle(dto.getCodeArticle());
             if (article.isPresent()) {
-                return articleRepository.save(ArticleDto.toEntity(dto));
+                return ArticleDto.fromEntity(articleRepository.save(ArticleDto.toEntity(dto)));
             } else {
                 log.error("Article ID is null");
             }

@@ -12,12 +12,12 @@ public class ArticleController implements ArticleApi {
     private ArticleService articleService;
 
     @Override
-    public void save(ArticleDto dto) {
-        articleService.save(dto);
+    public ArticleDto save(ArticleDto dto) {
+        return articleService.save(dto);
     }
     @Override
-    public void update(ArticleDto dto) {
-        articleService.update(dto);
+    public ArticleDto update(ArticleDto dto) {
+        return articleService.update(dto);
     }
 
     @Override
