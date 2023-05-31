@@ -10,19 +10,17 @@ import java.util.List;
 import static com.demo.utils.Constants.APP_ROOT;
 
 @Path(APP_ROOT + "/clients")
+@Produces(MediaType.APPLICATION_JSON)
+@Consumes(MediaType.APPLICATION_JSON)
 public interface ClientApi {
     @POST
-    @Produces(MediaType.APPLICATION_JSON)
-    @Consumes(MediaType.APPLICATION_JSON)
     void save(ClientDto dto);
 
     @GET
-    @Produces(MediaType.APPLICATION_JSON)
     @Path("/{id}")
     ClientDto findById(@PathParam("id") Integer id);
 
     @GET
-    @Produces(MediaType.APPLICATION_JSON)
     @Path("/all")
     List<ClientDto> findAll();
 

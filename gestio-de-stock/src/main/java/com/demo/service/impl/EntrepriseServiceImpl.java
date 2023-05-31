@@ -25,13 +25,13 @@ public class EntrepriseServiceImpl implements EntrepriseService {
 
     @Override
     @Transactional
-    public Entreprise save(EntrepriseDto dto) {
+    public EntrepriseDto save(EntrepriseDto dto) {
         List<String> errors = EntrepriseValidator.validate(dto);
         if (!errors.isEmpty()) {
             log.error("Enterprise is not valid {}", dto);
             throw new InvalidEntityException("L'Enterprise n'est pas valide", ErrorCodes.ENTREPRISE_NOT_VALID, errors);
         } else {
-            return entrepriseRepository.save(EntrepriseDto.toEntity(dto));
+            return EntrepriseDto.fromEntity(entrepriseRepository.save(EntrepriseDto.toEntity(dto)));
         }
     }
 

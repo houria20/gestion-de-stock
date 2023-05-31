@@ -22,7 +22,7 @@ public class ErrorDto {
     private ErrorCodes code;
 
     private String message;
-
+    @Builder.Default
     private List<String> errors = new ArrayList<>();
 
 }

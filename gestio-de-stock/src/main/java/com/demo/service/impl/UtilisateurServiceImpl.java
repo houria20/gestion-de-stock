@@ -32,7 +32,7 @@ public class UtilisateurServiceImpl implements UtilisateurService {
 
     @Override
     @Transactional
-    public Utilisateur save(UtilisateurDto dto) {
+    public UtilisateurDto save(UtilisateurDto dto) {
         List<String> errors = UtilisateurValidator.validate(dto);
         if (!errors.isEmpty()) {
             log.error("User is not valid {}", dto);
@@ -44,7 +44,7 @@ public class UtilisateurServiceImpl implements UtilisateurService {
                     Collections.singletonList("Un autre utilisateur avec le meme email existe déjà dans la BDD"));
         }
         dto.setMoteDePasse(passwordEncoder.encode(dto.getMoteDePasse()));
-       return utilisateurRepository.save(UtilisateurDto.toEntity(dto));
+       return UtilisateurDto.fromEntity(utilisateurRepository.save(UtilisateurDto.toEntity(dto)));
     }
 
     private boolean userAlreadyExists(String email) {
@@ -93,7 +93,7 @@ public class UtilisateurServiceImpl implements UtilisateurService {
 
     @Override
     @Transactional
-    public void changerMotDePasse(ChangerMotDePasseUtilisateurDto dto) {
+    public UtilisateurDto changerMotDePasse(ChangerMotDePasseUtilisateurDto dto) {
         validate(dto);
         Optional<Utilisateur> utilisateurOptional = Optional.ofNullable(utilisateurRepository.findById(Long.valueOf(dto.getId())));
         if (utilisateurOptional.isEmpty()) {
@@ -103,6 +103,7 @@ public class UtilisateurServiceImpl implements UtilisateurService {
         Utilisateur utilisateur = utilisateurOptional.get();
         utilisateur.setMoteDePasse(passwordEncoder.encode(dto.getMotDePasse()));
         utilisateurRepository.save(utilisateur);
+        return null;
     }
 
     private void validate(ChangerMotDePasseUtilisateurDto dto) {

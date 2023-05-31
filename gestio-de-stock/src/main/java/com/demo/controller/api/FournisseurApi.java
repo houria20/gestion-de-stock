@@ -1,8 +1,7 @@
 package com.demo.controller.api;
 
-
-import com.demo.dto.CategoryDto;
-import com.demo.dto.CategoryDto;
+import com.demo.dto.FournisseurDto;
+import com.demo.dto.FournisseurDto;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 
@@ -10,24 +9,20 @@ import java.util.List;
 
 import static com.demo.utils.Constants.APP_ROOT;
 
-@Path(APP_ROOT + "/categories")
+@Path(APP_ROOT+"/fournisseurs")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
-public interface CategoryApi {
+public interface FournisseurApi {
     @POST
-    void save(CategoryDto dto);
+    FournisseurDto save(FournisseurDto dto);
 
     @GET
     @Path("/{id}")
-    CategoryDto findById(@PathParam("id") Integer id);
-
-    @GET
-    @Path("/filter/{code}")
-    CategoryDto findByCode(@PathParam("code") String code);
+    FournisseurDto findById(@PathParam("id") Integer id);
 
     @GET
     @Path("/all")
-    List<CategoryDto> findAll();
+    List<FournisseurDto> findAll();
 
     @DELETE
     @Path("/{id}")

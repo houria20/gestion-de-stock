@@ -1,6 +1,7 @@
 com\demo\repository\LigneCommandeClientRepository.class
 com\demo\validator\EntrepriseValidator.class
 com\demo\repository\RolesRepository.class
+com\demo\controller\api\FournisseurApi.class
 com\demo\handlers\ErrorDto.class
 com\demo\controller\ArticleController.class
 com\demo\validator\ArticleValidator.class
@@ -24,12 +25,14 @@ com\demo\dto\UtilisateurDto.class
 com\demo\service\impl\MvtStkServiceImpl.class
 com\demo\model\MvtStk.class
 com\demo\model\Roles.class
+com\demo\controller\api\EntrepriseApi.class
 com\demo\model\CommandeFournisseur.class
 com\demo\repository\EntrepriseRepository.class
 com\demo\repository\LigneCommandeFournisseurRepository.class
 com\demo\dto\ClientDto.class
 com\demo\service\ClientService.class
 com\demo\service\impl\UtilisateurServiceImpl.class
+com\demo\controller\UtilisateurController.class
 com\demo\controller\CategoryController.class
 com\demo\repository\CommandeClientRepository.class
 com\demo\dto\CategoryDto.class
@@ -86,8 +89,10 @@ com\demo\model\Category.class
 com\demo\controller\api\CategoryApi.class
 com\demo\GreetingResource.class
 com\demo\dto\ChangerMotDePasseUtilisateurDto$ChangerMotDePasseUtilisateurDtoBuilder.class
+com\demo\controller\api\UtilisateurApi.class
 com\demo\validator\ClientValidator.class
 com\demo\exception\EntityNotFoundException.class
+com\demo\controller\FournisseurController.class
 com\demo\dto\ChangerMotDePasseUtilisateurDto.class
 com\demo\repository\VentesRepository.class
 com\demo\dto\CommandeFournisseurDto.class
@@ -109,6 +114,7 @@ com\demo\dto\AdresseDto$AdresseDtoBuilder.class
 com\demo\service\FournisseurService.class
 com\demo\model\Fournisseur.class
 com\demo\dto\CommandeClientDto$CommandeClientDtoBuilder.class
+com\demo\controller\EntrepriseController.class
 com\demo\dto\RolesDto.class
 com\demo\repository\LigneVenteRepository.class
 com\demo\validator\VentesValidator.class
