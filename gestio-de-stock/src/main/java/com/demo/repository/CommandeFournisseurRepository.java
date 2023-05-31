@@ -9,6 +9,10 @@ import java.util.List;
 import java.util.Optional;
 
 public class CommandeFournisseurRepository implements PanacheRepository<CommandeFournisseur> {
+    public CommandeFournisseur save(CommandeFournisseur commandeFournisseur) {
+        return getEntityManager().merge(commandeFournisseur);
+    }
+
     public Optional<CommandeFournisseur> findCommandeFournisseurByCode(String code) {
         return find("code", code).firstResultOptional();
     }

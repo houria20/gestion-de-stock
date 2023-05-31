@@ -25,13 +25,13 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     @Transactional
-    public void save(CategoryDto dto) {
+    public Category save(CategoryDto dto) {
         List<String> errors = CategoryValidator.validate(dto);
         if (!errors.isEmpty()) {
             log.error("Category is not valid {}", dto);
             throw new InvalidEntityException("La category n'est pas valide", ErrorCodes.CATEGORY_NOT_VALID, errors);
         }
-        categoryRepository.save(CategoryDto.toEntity(dto));
+        return categoryRepository.save(CategoryDto.toEntity(dto));
     }
 
     @Override

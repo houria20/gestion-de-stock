@@ -1,17 +1,12 @@
 package com.demo.service.impl;
 
-import com.demo.dto.ArticleDto;
-import com.demo.dto.CategoryDto;
 import com.demo.dto.ClientDto;
 import com.demo.exception.EntityNotFoundException;
 import com.demo.exception.ErrorCodes;
 import com.demo.exception.InvalidEntityException;
-import com.demo.model.Article;
 import com.demo.model.Client;
-import com.demo.repository.CategoryRepository;
 import com.demo.repository.ClientRepository;
 import com.demo.service.ClientService;
-import com.demo.validator.CategoryValidator;
 import com.demo.validator.ClientValidator;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
@@ -29,13 +24,13 @@ public class ClientServiceImpl implements ClientService {
     ClientRepository clientRepository;
     @Override
     @Transactional
-    public void save(ClientDto dto) {
+    public Client save(ClientDto dto) {
         List<String> errors = ClientValidator.validate(dto);
         if (!errors.isEmpty()) {
             log.error("Client is not valid {}", dto);
             throw new InvalidEntityException("La client n'est pas valide", ErrorCodes.CLIENT_NOT_VALID, errors);
         }
-        clientRepository.save(ClientDto.toEntity(dto));
+       return clientRepository.save(ClientDto.toEntity(dto));
     }
 
     @Override

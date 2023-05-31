@@ -1,15 +1,12 @@
 package com.demo.service.impl;
 
-import com.demo.dto.ArticleDto;
 import com.demo.dto.FournisseurDto;
 import com.demo.exception.EntityNotFoundException;
 import com.demo.exception.ErrorCodes;
 import com.demo.exception.InvalidEntityException;
-import com.demo.model.Article;
 import com.demo.model.Fournisseur;
 import com.demo.repository.FournisseurRepository;
 import com.demo.service.FournisseurService;
-import com.demo.validator.ArticleValidator;
 import com.demo.validator.FournisseurValidator;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
@@ -28,14 +25,13 @@ public class FournisseurServiceImpl implements FournisseurService {
 
     @Override
     @Transactional
-    public void save(FournisseurDto dto) {
+    public Fournisseur save(FournisseurDto dto) {
         List<String> errors = FournisseurValidator.validate(dto);
         if (!errors.isEmpty()) {
             log.error("Fournisseur is not valid {}", dto);
             throw new InvalidEntityException("Le fournisseur n'est pas valide", ErrorCodes.FOURNISSEUR_NOT_VALID, errors);
         } else {
-            Fournisseur a = FournisseurDto.toEntity(dto);
-            fournisseurRepository.save(a);
+            return fournisseurRepository.save(FournisseurDto.toEntity(dto));
         }
     }
 

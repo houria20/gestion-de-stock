@@ -8,11 +8,15 @@ import java.util.Optional;
 
 @ApplicationScoped
 public class ArticleRepository implements PanacheRepository<Article> {
-    public void save(Article article) {
-        getEntityManager().merge(article);//persist(article);
+    public Article save(Article article) {
+        return getEntityManager().merge(article);
     }
 
     public Optional<Article> findByCodeArticle(String codeArticle) {
         return find("codeArticle", codeArticle).firstResultOptional();
+    }
+
+    public Optional<Article> findAllByCategoryId(Integer idCategory) {
+        return find("category.id", idCategory).firstResultOptional();
     }
 }

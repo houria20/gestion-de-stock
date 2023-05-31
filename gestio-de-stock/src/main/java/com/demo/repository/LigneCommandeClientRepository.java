@@ -8,12 +8,14 @@ import java.util.List;
 
 public class LigneCommandeClientRepository implements PanacheRepository<LigneCommandeClient> {
 
-
-  List<LigneCommandeClient> findAllByCommandeClientId(Integer id){
+  public LigneCommandeClient save(LigneCommandeClient lg) {
+    return getEntityManager().merge(lg);
+  }
+  public List<LigneCommandeClient> findAllByCommandeClientId(Integer id){
     return list("commandeClient.id", id);
   }
 
-  List<LigneCommandeClient> findAllByArticleId(Integer id){
+  public List<LigneCommandeClient> findAllByArticleId(Integer id){
     return list("article.id", id);
   }
 }

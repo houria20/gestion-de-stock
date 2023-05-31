@@ -1,6 +1,7 @@
 package com.demo.service;
 
 import com.demo.dto.CategoryDto;
+import com.demo.model.Category;
 import jakarta.enterprise.context.ApplicationScoped;
 
 import java.util.List;
@@ -8,7 +9,7 @@ import java.util.List;
 @ApplicationScoped
 public interface CategoryService {
 
-  void save(CategoryDto dto);
+  Category save(CategoryDto dto);
 
   CategoryDto findById(Integer id);
 

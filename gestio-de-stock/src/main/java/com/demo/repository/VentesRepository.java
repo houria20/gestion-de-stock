@@ -7,7 +7,11 @@ import java.util.Optional;
 
 public class VentesRepository implements PanacheRepository<Ventes> {
 
-  Optional<Ventes> findVentesByCode(String code){
-    return find("code", code).firstResultOptional();
-  }
+    public Optional<Ventes> findVentesByCode(String code) {
+        return find("code", code).firstResultOptional();
+    }
+
+    public Ventes save(Ventes vente) {
+        return getEntityManager().merge(vente);
+    }
 }

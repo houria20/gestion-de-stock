@@ -23,6 +23,7 @@ import java.util.stream.Collectors;
 
 @ApplicationScoped
 @Slf4j
+@Transactional
 public class UtilisateurServiceImpl implements UtilisateurService {
     @Inject
     UtilisateurRepository utilisateurRepository;
@@ -31,7 +32,7 @@ public class UtilisateurServiceImpl implements UtilisateurService {
 
     @Override
     @Transactional
-    public void save(UtilisateurDto dto) {
+    public Utilisateur save(UtilisateurDto dto) {
         List<String> errors = UtilisateurValidator.validate(dto);
         if (!errors.isEmpty()) {
             log.error("User is not valid {}", dto);
@@ -43,7 +44,7 @@ public class UtilisateurServiceImpl implements UtilisateurService {
                     Collections.singletonList("Un autre utilisateur avec le meme email existe déjà dans la BDD"));
         }
         dto.setMoteDePasse(passwordEncoder.encode(dto.getMoteDePasse()));
-        utilisateurRepository.save(UtilisateurDto.toEntity(dto));
+       return utilisateurRepository.save(UtilisateurDto.toEntity(dto));
     }
 
     private boolean userAlreadyExists(String email) {
@@ -91,6 +92,7 @@ public class UtilisateurServiceImpl implements UtilisateurService {
     }
 
     @Override
+    @Transactional
     public void changerMotDePasse(ChangerMotDePasseUtilisateurDto dto) {
         validate(dto);
         Optional<Utilisateur> utilisateurOptional = Optional.ofNullable(utilisateurRepository.findById(Long.valueOf(dto.getId())));

@@ -8,6 +8,10 @@ import java.util.List;
 import java.util.Optional;
 
 public class CommandeClientRepository implements PanacheRepository<CommandeClient> {
+    public CommandeClient save(CommandeClient commandeClient) {
+        return getEntityManager().merge(commandeClient);
+    }
+
     public Optional<CommandeClient> findCommandeClientByCode(String code) {
         return find("code", code).firstResultOptional();
     }
