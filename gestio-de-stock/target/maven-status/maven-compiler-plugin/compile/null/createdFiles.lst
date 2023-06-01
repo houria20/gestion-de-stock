@@ -1,8 +1,11 @@
+com\demo\controller\api\CommandeFurnisseurApi.class
 com\demo\repository\LigneCommandeClientRepository.class
 com\demo\validator\EntrepriseValidator.class
 com\demo\repository\RolesRepository.class
 com\demo\controller\api\FournisseurApi.class
 com\demo\handlers\ErrorDto.class
+com\demo\controller\VentesController.class
+com\demo\controller\CommandeClientController.class
 com\demo\controller\ArticleController.class
 com\demo\validator\ArticleValidator.class
 com\demo\service\MvtStkService.class
@@ -63,6 +66,7 @@ com\demo\service\CategoryService.class
 com\demo\service\impl\ClientServiceImpl.class
 com\demo\dto\LigneCommandeFournisseurDto$LigneCommandeFournisseurDtoBuilder.class
 com\demo\service\impl\EntrepriseServiceImpl.class
+com\demo\controller\api\MvtStkApi.class
 com\demo\service\CommandeClientService.class
 com\demo\dto\FournisseurDto$FournisseurDtoBuilder.class
 com\demo\service\VentesService.class
@@ -70,13 +74,16 @@ com\demo\repository\FournisseurRepository.class
 com\demo\service\impl\ArticleServiceImpl.class
 com\demo\service\impl\FournisseurServiceImpl.class
 com\demo\service\EntrepriseService.class
+com\demo\controller\api\CommandeClientApi.class
 com\demo\utils\Constants.class
 com\demo\validator\MvtStkValidator.class
 com\demo\dto\VentesDto$VentesDtoBuilder.class
 com\demo\validator\FournisseurValidator.class
+com\demo\controller\MvtStkController.class
 com\demo\dto\CommandeFournisseurDto$CommandeFournisseurDtoBuilder.class
 com\demo\handlers\ErrorDto$ErrorDtoBuilder.class
 com\demo\model\EtatCommande.class
+com\demo\controller\api\VentesApi.class
 com\demo\dto\AdresseDto.class
 com\demo\model\Adresse.class
 com\demo\repository\CategoryRepository.class
@@ -95,6 +102,7 @@ com\demo\exception\EntityNotFoundException.class
 com\demo\controller\FournisseurController.class
 com\demo\dto\ChangerMotDePasseUtilisateurDto.class
 com\demo\repository\VentesRepository.class
+com\demo\controller\CommandeFournisseurController.class
 com\demo\dto\CommandeFournisseurDto.class
 com\demo\dto\ArticleDto$ArticleDtoBuilder.class
 com\demo\dto\LigneVenteDto$LigneVenteDtoBuilder.class

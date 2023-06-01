@@ -13,23 +13,22 @@ import java.time.Instant;
 @MappedSuperclass
 public class AbstractEntity implements Serializable {
 
-  @Id
-  @SequenceGenerator(
-          name = "idSequence",
-          sequenceName = "id_seq",
-          allocationSize = 1,
-          initialValue = 1)
-  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "idSequence")
-  //@GeneratedValue
-  private Integer id;
+    @Id
+    @SequenceGenerator(
+            name = "idSequence",
+            sequenceName = "id_seq",
+            allocationSize = 1,
+            initialValue = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "idSequence")
+    private Integer id;
 
-  @CreationTimestamp
-  @Column(name = "creationDate", nullable = false, updatable = false)
-  private Instant creationDate;
+    @CreationTimestamp
+    @Column(name = "creationDate", nullable = false, updatable = false)
+    private Instant creationDate;
 
-  @UpdateTimestamp
-  @Column(name = "lastModifiedDate")
-  private Instant lastModifiedDate;
+    @UpdateTimestamp
+    @Column(name = "lastModifiedDate")
+    private Instant lastModifiedDate;
 
 
 }

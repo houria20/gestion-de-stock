@@ -15,6 +15,7 @@ D:\projects\gestion-de-stock\gestion-de-stock\gestio-de-stock\src\main\java\com\
 D:\projects\gestion-de-stock\gestion-de-stock\gestio-de-stock\src\main\java\com\demo\dto\CommandeFournisseurDto.java
 D:\projects\gestion-de-stock\gestion-de-stock\gestio-de-stock\src\main\java\com\demo\model\TypeMvtStk.java
 D:\projects\gestion-de-stock\gestion-de-stock\gestio-de-stock\src\main\java\com\demo\service\impl\UtilisateurServiceImpl.java
+D:\projects\gestion-de-stock\gestion-de-stock\gestio-de-stock\src\main\java\com\demo\controller\CommandeFournisseurController.java
 D:\projects\gestion-de-stock\gestion-de-stock\gestio-de-stock\src\main\java\com\demo\model\Article.java
 D:\projects\gestion-de-stock\gestion-de-stock\gestio-de-stock\src\main\java\com\demo\service\ArticleService.java
 D:\projects\gestion-de-stock\gestion-de-stock\gestio-de-stock\src\main\java\com\demo\exception\InvalidEntityException.java
@@ -33,11 +34,14 @@ D:\projects\gestion-de-stock\gestion-de-stock\gestio-de-stock\src\main\java\com\
 D:\projects\gestion-de-stock\gestion-de-stock\gestio-de-stock\src\main\java\com\demo\service\CategoryService.java
 D:\projects\gestion-de-stock\gestion-de-stock\gestio-de-stock\src\main\java\com\demo\dto\ChangerMotDePasseUtilisateurDto.java
 D:\projects\gestion-de-stock\gestion-de-stock\gestio-de-stock\src\main\java\com\demo\dto\CategoryDto.java
+D:\projects\gestion-de-stock\gestion-de-stock\gestio-de-stock\src\main\java\com\demo\controller\VentesController.java
 D:\projects\gestion-de-stock\gestion-de-stock\gestio-de-stock\src\main\java\com\demo\validator\AdresseValidator.java
 D:\projects\gestion-de-stock\gestion-de-stock\gestio-de-stock\src\main\java\com\demo\validator\ArticleValidator.java
 D:\projects\gestion-de-stock\gestion-de-stock\gestio-de-stock\src\main\java\com\demo\validator\FournisseurValidator.java
 D:\projects\gestion-de-stock\gestion-de-stock\gestio-de-stock\src\main\java\com\demo\model\CommandeClient.java
+D:\projects\gestion-de-stock\gestion-de-stock\gestio-de-stock\src\main\java\com\demo\controller\CommandeClientController.java
 D:\projects\gestion-de-stock\gestion-de-stock\gestio-de-stock\src\main\java\com\demo\validator\CommandeClientValidator.java
+D:\projects\gestion-de-stock\gestion-de-stock\gestio-de-stock\src\main\java\com\demo\controller\api\CommandeFurnisseurApi.java
 D:\projects\gestion-de-stock\gestion-de-stock\gestio-de-stock\src\main\java\com\demo\handlers\ErrorDto.java
 D:\projects\gestion-de-stock\gestion-de-stock\gestio-de-stock\src\main\java\com\demo\repository\RolesRepository.java
 D:\projects\gestion-de-stock\gestion-de-stock\gestio-de-stock\src\main\java\com\demo\controller\FournisseurController.java
@@ -57,6 +61,7 @@ D:\projects\gestion-de-stock\gestion-de-stock\gestio-de-stock\src\main\java\com\
 D:\projects\gestion-de-stock\gestion-de-stock\gestio-de-stock\src\main\java\com\demo\controller\api\ArticleApi.java
 D:\projects\gestion-de-stock\gestion-de-stock\gestio-de-stock\src\main\java\com\demo\model\EtatCommande.java
 D:\projects\gestion-de-stock\gestion-de-stock\gestio-de-stock\src\main\java\com\demo\validator\LigneCommandeClientValidator.java
+D:\projects\gestion-de-stock\gestion-de-stock\gestio-de-stock\src\main\java\com\demo\controller\api\MvtStkApi.java
 D:\projects\gestion-de-stock\gestion-de-stock\gestio-de-stock\src\main\java\com\demo\model\Category.java
 D:\projects\gestion-de-stock\gestion-de-stock\gestio-de-stock\src\main\java\com\demo\repository\CommandeClientRepository.java
 D:\projects\gestion-de-stock\gestion-de-stock\gestio-de-stock\src\main\java\com\demo\repository\LigneCommandeFournisseurRepository.java
@@ -75,6 +80,7 @@ D:\projects\gestion-de-stock\gestion-de-stock\gestio-de-stock\src\main\java\com\
 D:\projects\gestion-de-stock\gestion-de-stock\gestio-de-stock\src\main\java\com\demo\controller\api\UtilisateurApi.java
 D:\projects\gestion-de-stock\gestion-de-stock\gestio-de-stock\src\main\java\com\demo\model\Ventes.java
 D:\projects\gestion-de-stock\gestion-de-stock\gestio-de-stock\src\main\java\com\demo\controller\EntrepriseController.java
+D:\projects\gestion-de-stock\gestion-de-stock\gestio-de-stock\src\main\java\com\demo\controller\api\VentesApi.java
 D:\projects\gestion-de-stock\gestion-de-stock\gestio-de-stock\src\main\java\com\demo\repository\LigneVenteRepository.java
 D:\projects\gestion-de-stock\gestion-de-stock\gestio-de-stock\src\main\java\com\demo\utils\PasswordEncoder.java
 D:\projects\gestion-de-stock\gestion-de-stock\gestio-de-stock\src\main\java\com\demo\model\AbstractEntity.java
@@ -86,6 +92,7 @@ D:\projects\gestion-de-stock\gestion-de-stock\gestio-de-stock\src\main\java\com\
 D:\projects\gestion-de-stock\gestion-de-stock\gestio-de-stock\src\main\java\com\demo\controller\ArticleController.java
 D:\projects\gestion-de-stock\gestion-de-stock\gestio-de-stock\src\main\java\com\demo\service\impl\ArticleServiceImpl.java
 D:\projects\gestion-de-stock\gestion-de-stock\gestio-de-stock\src\main\java\com\demo\validator\CommandeFournisseurValidator.java
+D:\projects\gestion-de-stock\gestion-de-stock\gestio-de-stock\src\main\java\com\demo\controller\api\CommandeClientApi.java
 D:\projects\gestion-de-stock\gestion-de-stock\gestio-de-stock\src\main\java\com\demo\service\impl\ClientServiceImpl.java
 D:\projects\gestion-de-stock\gestion-de-stock\gestio-de-stock\src\main\java\com\demo\dto\FournisseurDto.java
 D:\projects\gestion-de-stock\gestion-de-stock\gestio-de-stock\src\main\java\com\demo\dto\LigneCommandeClientDto.java
@@ -95,6 +102,7 @@ D:\projects\gestion-de-stock\gestion-de-stock\gestio-de-stock\src\main\java\com\
 D:\projects\gestion-de-stock\gestion-de-stock\gestio-de-stock\src\main\java\com\demo\service\VentesService.java
 D:\projects\gestion-de-stock\gestion-de-stock\gestio-de-stock\src\main\java\com\demo\service\impl\EntrepriseServiceImpl.java
 D:\projects\gestion-de-stock\gestion-de-stock\gestio-de-stock\src\main\java\com\demo\repository\ArticleRepository.java
+D:\projects\gestion-de-stock\gestion-de-stock\gestio-de-stock\src\main\java\com\demo\controller\MvtStkController.java
 D:\projects\gestion-de-stock\gestion-de-stock\gestio-de-stock\src\main\java\com\demo\service\EntrepriseService.java
 D:\projects\gestion-de-stock\gestion-de-stock\gestio-de-stock\src\main\java\com\demo\service\ClientService.java
 D:\projects\gestion-de-stock\gestion-de-stock\gestio-de-stock\src\main\java\com\demo\repository\EntrepriseRepository.java
