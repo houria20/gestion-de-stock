@@ -7,11 +7,8 @@ com\demo\exception\InvalidOperationException.class
 com\demo\model\Article$ArticleBuilder.class
 com\demo\model\Article.class
 com\demo\dto\ArticleDto$ArticleDtoBuilder.class
-com\demo\service\impl\ArticleServiceImpl.class
 com\demo\controller\ArticleController.class
 com\demo\dto\ArticleDto.class
-com\demo\validator\ArticleValidator.class
 com\demo\exception\ErrorCodes.class
-com\demo\service\ArticleService.class
 com\demo\repository\ArticleRepository.class
 com\demo\exception\InvalidEntityException.class
