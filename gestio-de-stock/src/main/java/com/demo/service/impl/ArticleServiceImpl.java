@@ -1,11 +1,17 @@
 package com.demo.service.impl;
 
 import com.demo.dto.ArticleDto;
+import com.demo.dto.LigneCommandeClientDto;
+import com.demo.dto.LigneCommandeFournisseurDto;
+import com.demo.dto.LigneVenteDto;
 import com.demo.exception.EntityNotFoundException;
 import com.demo.exception.ErrorCodes;
 import com.demo.exception.InvalidEntityException;
 import com.demo.model.Article;
 import com.demo.repository.ArticleRepository;
+import com.demo.repository.LigneCommandeClientRepository;
+import com.demo.repository.LigneCommandeFournisseurRepository;
+import com.demo.repository.LigneVenteRepository;
 import com.demo.service.ArticleService;
 import com.demo.validator.ArticleValidator;
 import jakarta.enterprise.context.ApplicationScoped;
@@ -21,24 +27,29 @@ import java.util.stream.Collectors;
 @Slf4j
 public class ArticleServiceImpl implements ArticleService {
     @Inject
-    ArticleRepository articleRepository;
+    private ArticleRepository articleRepository;
+    @Inject
+    private LigneVenteRepository venteRepository;
+    @Inject
+    private LigneCommandeFournisseurRepository commandeFournisseurRepository;
+    @Inject
+    private LigneCommandeClientRepository commandeClientRepository;
 
     @Override
     @Transactional
-    public void save(ArticleDto dto) {
+    public ArticleDto save(ArticleDto dto) {
         List<String> errors = ArticleValidator.validate(dto);
         if (!errors.isEmpty()) {
             log.error("Article is not valid {}", dto);
             throw new InvalidEntityException("L'article n'est pas valide", ErrorCodes.ARTICLE_NOT_VALID, errors);
         } else {
-            Article a = ArticleDto.toEntity(dto);
-            articleRepository.save(a);
+            return ArticleDto.fromEntity(articleRepository.save(ArticleDto.toEntity(dto)));
         }
     }
 
     @Override
     @Transactional
-    public void update(ArticleDto dto) {
+    public ArticleDto update(ArticleDto dto) {
         List<String> errors = ArticleValidator.validate(dto);
         if (!errors.isEmpty()) {
             log.error("Article is not valid {}", dto);
@@ -46,11 +57,12 @@ public class ArticleServiceImpl implements ArticleService {
         } else {
             Optional<Article> article = articleRepository.findByCodeArticle(dto.getCodeArticle());
             if (article.isPresent()) {
-                articleRepository.save(ArticleDto.toEntity(dto));
+                return ArticleDto.fromEntity(articleRepository.save(ArticleDto.toEntity(dto)));
             } else {
                 log.error("Article ID is null");
             }
         }
+        return null;
     }
 
     @Override
@@ -64,13 +76,7 @@ public class ArticleServiceImpl implements ArticleService {
                 new EntityNotFoundException(
                         "Aucun article avec l'ID = " + id + " n' ete trouve dans la BDD",
                         ErrorCodes.ARTICLE_NOT_FOUND));
-        /*return articleRepository.findById(Long.valueOf(id)).map(ArticleDto::fromEntity).orElseThrow(() ->
-                new EntityNotFoundException(
-                        "Aucun article avec l'ID = " + id + " n' ete trouve dans la BDD",
-                        ErrorCodes.ARTICLE_NOT_FOUND)
-        );*/
     }
-
 
     @Override
     public ArticleDto findByCodeArticle(String codeArticle) {
@@ -92,7 +98,6 @@ public class ArticleServiceImpl implements ArticleService {
         return articleRepository.findAll().stream()
                 .map(ArticleDto::fromEntity)
                 .collect(Collectors.toList());
-        //articleRepository.listAll();
     }
 
     @Override
@@ -103,5 +108,33 @@ public class ArticleServiceImpl implements ArticleService {
             return;
         }
         articleRepository.delete(articleRepository.findById(Long.valueOf(id)));
+    }
+
+    @Override
+    public List<LigneVenteDto> findHistoriqueVentes(Integer idArticle) {
+        return venteRepository.findAllByArticleId(idArticle).stream()
+                .map(LigneVenteDto::fromEntity)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<LigneCommandeClientDto> findHistoriaueCommandeClient(Integer idArticle) {
+        return commandeClientRepository.findAllByArticleId(idArticle).stream()
+                .map(LigneCommandeClientDto::fromEntity)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<LigneCommandeFournisseurDto> findHistoriqueCommandeFournisseur(Integer idArticle) {
+        return commandeFournisseurRepository.findAllByArticleId(idArticle).stream()
+                .map(LigneCommandeFournisseurDto::fromEntity)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<ArticleDto> findAllArticleByIdCategory(Integer idCategory) {
+        return articleRepository.findAllByCategoryId(idCategory).stream()
+                .map(ArticleDto::fromEntity)
+                .collect(Collectors.toList());
     }
 }

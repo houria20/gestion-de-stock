@@ -1,6 +1,5 @@
 package com.demo.exception;
 
-import com.demo.exception.ErrorCodes;
 import lombok.Getter;
 
 public class EntityNotFoundException extends RuntimeException {

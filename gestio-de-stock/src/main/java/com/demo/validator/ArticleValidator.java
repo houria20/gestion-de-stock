@@ -36,9 +36,9 @@ public class ArticleValidator {
         if (dto.getPrixUnitaireTtc() == null) {
             errors.add("Veuillez renseigner le prix unitaire TTC de l'article");
         }
-       /* if (dto.getCategory() == null || dto.getCategory().getId() == null) {
-            errors.add("Veuillez selectionner une categorie");
-        }*/
+        if (dto.getCategory() == null || dto.getCategory().getId() == null) {
+            errors.add("Veuillez sélectionner une categorie");
+        }
         return errors;
     }
 

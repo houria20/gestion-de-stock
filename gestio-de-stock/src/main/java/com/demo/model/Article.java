@@ -12,21 +12,10 @@ import java.time.Instant;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode
+@EqualsAndHashCode(callSuper = true)
 @Entity
 @Table(name = "article")
-public class Article {
-    @Id
-    @SequenceGenerator(
-            name = "articleSequence",
-            sequenceName = "article_seq",
-            allocationSize = 1,
-            initialValue = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "articleSequence")
-    private Integer id;
-    @Column(name = "creationDate", nullable = false)
-    private Instant createdDate;
-    @Column(name = "code_article")
+public class Article extends AbstractEntity {
     private String codeArticle;
     @Column(name = "designation")
     private String designation;
@@ -38,9 +27,9 @@ public class Article {
     private BigDecimal prixUnitaireTtc;
     @Column(name = "photo")
     private String photo;
-/*  @ManyToOne
+    @ManyToOne
     @JoinColumn(name = "idcategory")
-    private Category category;*/
+    private Category category;
 
     @Column(name = "identreprise")
     private Integer idEntreprise;

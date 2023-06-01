@@ -6,28 +6,31 @@ import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 
 import java.util.List;
-@Path("/articles")
+
+import static com.demo.utils.Constants.APP_ROOT;
+
+@Path(APP_ROOT + "/articles")
+@Produces(MediaType.APPLICATION_JSON)
+@Consumes(MediaType.APPLICATION_JSON)
 public interface ArticleApi {
     @POST
-    @Produces(MediaType.APPLICATION_JSON)
-    @Consumes(MediaType.APPLICATION_JSON)
-    void save(ArticleDto dto);
+    ArticleDto save(ArticleDto dto);
+
     @PUT
-    @Produces(MediaType.APPLICATION_JSON)
-    @Consumes(MediaType.APPLICATION_JSON)
-    void update(ArticleDto dto);
+    ArticleDto update(ArticleDto dto);
+
     @GET
-    @Produces(MediaType.APPLICATION_JSON)
     @Path("/{id}")
     ArticleDto findById(@PathParam("id") Integer id);
+
     @GET
-    @Produces(MediaType.APPLICATION_JSON)
     @Path("/filter/{code}")
     ArticleDto findByCodeArticle(@PathParam("code") String codeArticle);
+
     @GET
-    @Produces(MediaType.APPLICATION_JSON)
     @Path("/all")
     List<ArticleDto> findAll();
+
     @DELETE
     @Path("/{id}")
     void delete(Integer id);
